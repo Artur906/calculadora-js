@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles/style.css">
+   <title>Calculadora</title>
+</head>
+<body>
+   <div id="calculator">
+      <div id="display">0</div>
+      <div id="keys">
+         <div id="num-pad">
+            <button onclick="concatena('7')">7</button>
+            <button onclick="concatena('8')">8</button>
+            <button onclick="concatena('9')">9</button>
+            <button onclick="concatena('4')">4</button>
+            <button onclick="concatena('5')">5</button>
+            <button onclick="concatena('6')">6</button>
+            <button onclick="concatena('1')">1</button>
+            <button onclick="concatena('2')">2</button>
+            <button onclick="concatena('3')">3</button>
+            <button onclick="concatena('0')">0</button>
+            <button onclick="concatena('.')">.</button>
+            <button onclick="calcular()">=</button>
+         </div>
+         <div id="operations">
+            <button onclick="somar()">+</button>
+            <button onclick="subtrair()">-</button>
+            <button onclick="multiplicar()">*</button>
+            <button onclick="dividir()">/</button>
+            <button onclick="limpar()">CLS</button>
+         </div>
+      </div>
+   </div>
+
+   <script src="scripts/script.js"></script>
+</body>
+</html>
