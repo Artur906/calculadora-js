@@ -1,7 +1,10 @@
 let displayNumber = ""
-let lastNumber = 0
+let inputs = {
+   values: [], 
+   operations: []
+}
 let conta = 0
-let operation = ""
+let apaga = false
 let displayEl = document.getElementById("display")
 
 function render() {
@@ -9,9 +12,13 @@ function render() {
 }
 
 function concatena(number) {
-   if(displayNumber == "0" && number == "0"){
-      render()
+   if(displayNumber === "0" && number === "0" || apaga === true){
       displayNumber = ""
+      if(apaga === true) {
+         displayNumber += number
+      }
+      render()
+      apaga = false
    } else {
       displayNumber += number
       render()
@@ -20,53 +27,57 @@ function concatena(number) {
 }
 
 function somar() {
-   conta += parseFloat(displayNumber)
+   inputs.values.push(parseFloat(displayNumber))
+   inputs.operations.push("+")
    displayNumber = ""
-   operation = "+"
    console.log(conta)
    render()
    
 }
 function subtrair() {
-   conta -= parseFloat(displayNumber)
+   inputs.values.push(parseFloat(displayNumber))
+   inputs.operations.push("-")
    displayNumber = ""
-   operation = "-"
    console.log(conta)
    render()
    
 }
 function multiplicar() {
-   conta *= parseFloat(displayNumber)
+   inputs.values.push(parseFloat(displayNumber))
+   inputs.operations.push("*")
    displayNumber = ""
-   operation = "*"
    console.log(conta)
    
 }
 function dividir() {
-   conta /= parseFloat(displayNumber)
+   inputs.values.push(parseFloat(displayNumber))
+   inputs.operations.push("/")
    displayNumber = ""
-   operation = "/"
    console.log(conta)
    
 }
 
 function calcular(){
-   switch(operation){
+   inputs.values.push(parseFloat(displayNumber))
+   switch(inputs.operations[0]){
       case '+': 
-         conta += parseFloat(displayNumber)
+      conta = inputs.values[0] + inputs.values[1] 
          break; 
       case '/': 
-         conta /= parseFloat(displayNumber)
+         conta = inputs.values[0] / inputs.values[1] 
          break; 
       case '*': 
-         conta *= parseFloat(displayNumber)
+         conta = inputs.values[0] * inputs.values[1] 
          break; 
       case '-': 
-         conta -= parseFloat(displayNumber)
+         conta = inputs.values[0] - inputs.values[1] 
          break; 
    }
    displayNumber = conta
    conta = 0
+   inputs.values = []
+   inputs.operations = []
+   apaga = true
    render()
 }
 
