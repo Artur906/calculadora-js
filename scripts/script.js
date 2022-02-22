@@ -16,10 +16,10 @@ function concatena(number) {
       displayNumber = ""
       if(apaga === true) {
          displayNumber += number
+         apaga = false
       }
       render()
-      apaga = false
-   } else {
+   } else if (displayNumber.length < 7){
       displayNumber += number
       render()
    }
