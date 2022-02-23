@@ -15,6 +15,9 @@
       <div id="display">0</div>
       <div id="keys">
          <div id="num-pad">
+            <button id="turn-on"onclick="turnOn()">AC</button>
+            <button onclick="limpar()">CE</button>
+            <button onclick="turnOff()">OFF</button>
             <button onclick="concatena('7')">7</button>
             <button onclick="concatena('8')">8</button>
             <button onclick="concatena('9')">9</button>
@@ -24,16 +27,15 @@
             <button onclick="concatena('1')">1</button>
             <button onclick="concatena('2')">2</button>
             <button onclick="concatena('3')">3</button>
-            <button onclick="concatena('0')">0</button>
+            <button id="biger"onclick="concatena('0')">0</button>
             <button onclick="concatena('.')">.</button>
-            <button onclick="calcular()">=</button>
          </div>
          <div id="operations">
             <button onclick="somar()">+</button>
             <button onclick="subtrair()">-</button>
             <button onclick="multiplicar()">*</button>
             <button onclick="dividir()">/</button>
-            <button onclick="limpar()">CLS</button>
+            <button onclick="calcular()">=</button>
          </div>
       </div>
    </div>
