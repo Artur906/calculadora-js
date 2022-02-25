@@ -12,11 +12,11 @@
 </head>
 <body>
    <div id="calculator">
-      <div id="display">0</div>
+      <div id="display"></div>
       <div id="keys">
          <div id="num-pad">
             <button id="turn-on"onclick="turnOn()">AC</button>
-            <button onclick="limpar()">CE</button>
+            <button onclick="makeItZero()">CE</button>
             <button onclick="turnOff()">OFF</button>
             <button onclick="concatena('7')">7</button>
             <button onclick="concatena('8')">8</button>
@@ -35,7 +35,7 @@
             <button onclick="subtrair()">-</button>
             <button onclick="multiplicar()">*</button>
             <button onclick="dividir()">/</button>
-            <button onclick="calcular()">=</button>
+            <button onclick="calcular(true)">=</button>
          </div>
       </div>
    </div>
