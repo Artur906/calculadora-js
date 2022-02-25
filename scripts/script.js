@@ -1,44 +1,60 @@
-let ligado = false
+let displayEl = document.getElementById("display")
 let displayNumber = ""
-let nameIt = 0 // variavel que armazena o valor da tela, fiquei sem ideia pra nomear ela
 let inputs = {
-   values: [], 
-   operations: ""
+   tamanhoValues: 0,
+   values: [0], 
+   operations: []
 }
 let conta = 0
+let on = false
 let apaga = false
-let displayEl = document.getElementById("display")
 
 function render() {
    displayEl.textContent = displayNumber
 }
 
 function concatena(number) {
-   if(ligado === true){
+   
+   if(on === true){
+      if(displayNumber[displayNumber.length-1] === "." && number === "."){
+         displayNumber = displayEl 
+      }
       if(displayNumber === "0"){
-      apaga = true
+         apaga = true
       }
       if(displayEl === "0" || apaga === true){
-      displayNumber = ""
+         displayNumber = ""
          if(apaga === true) {
             displayNumber += number
-            nameIt = parseFloat(displayNumber)
+            inputs.values[inputs.tamanhoValues] = parseFloat(displayNumber)
             apaga = false
          }
          render()
       } else if (displayNumber.length < 7){
          displayNumber += number
-         nameIt = parseFloat(displayNumber)
+         inputs.values[inputs.tamanhoValues] = parseFloat(displayNumber)
+         console.log(inputs.tamanhoValues)
+         console.log(inputs.values)
          render()
       }
+      // if(inputs.values.length > 1 && inputs.values.length < 3){
+      //    calcular()
+      //    //
+      // }else{
+      //    calcular(true)
+      //}
    }
    
    
 }
 
 function somar() {
-   if(ligado){
-      alert("Ainda não funciona direito")
+   if(on){
+      inputs.operations.push("+")
+      displayNumber = ""
+      inputs.tamanhoValues++
+      inputs.values.push(0)
+      render()
    } 
    // inputs.operations = "+"
    // if(inputs.values.length === 2) {
@@ -54,8 +70,12 @@ function somar() {
    // }  
 }
 function subtrair() {
-   if(ligado){
-      alert("Ainda não funciona direito")
+   if(on){
+      inputs.operations.push("-")
+      displayNumber = ""
+      inputs.tamanhoValues++
+      inputs.values.push(0)
+      render()
    } 
    // inputs.operations = "-"
    // if(inputs.values.length === 2) {
@@ -71,8 +91,12 @@ function subtrair() {
    
 }
 function multiplicar() {
-   if(ligado){
-      alert("Ainda não funciona direito")
+   if(on){
+      inputs.operations.push("*")
+      displayNumber = ""
+      inputs.tamanhoValues++
+      inputs.values.push(0)
+      render()
    } 
    // inputs.operations = "*"
    // if(inputs.values.length === 2) {
@@ -86,8 +110,12 @@ function multiplicar() {
    // }
 }
 function dividir() {
-   if(ligado){
-      alert("Ainda não funciona direito")
+   if(on){
+      inputs.operations.push("/")
+      displayNumber = ""
+      inputs.tamanhoValues++
+      inputs.values.push(0)
+      render()
    } 
 // inputs.operations = "/"
    // if(inputs.values.length === 2) {
@@ -104,26 +132,61 @@ function dividir() {
 }
 
 function calcular(limpa=false){
-   if(ligado){
-      alert("Ainda não funciona direito")
+   if(on){
+      let numberCounter = 0// serve pra saber o número de operações que estou fazendo
+      let i = 0; // valor de indice da operação
+      for(let j = 0; j < inputs.tamanhoValues+1; j++){
+         switch(inputs.operations[i]){
+            case '+': 
+               conta += inputs.values[j] 
+               numberCounter++
+               if(numberCounter % 2 === 0){
+                  i++
+               }
+               break; 
+            case '-': 
+               if(conta === 0) {
+                  conta += inputs.values[j]
+               } else {
+                  conta -= inputs.values[j] 
+               }
+               numberCounter++
+               if(numberCounter % 2 === 0){
+                  i++
+               }
+               break; 
+            case '*': 
+               if(conta === 0) {
+                  conta += inputs.values[j]
+               }
+               conta *= inputs.values[j] 
+               numberCounter++
+               if(numberCounter % 2 === 0){
+                  i++
+               }
+               break; 
+            case '/': 
+               if(conta === 0) {
+                  conta += inputs.values[j]
+               }
+               conta /= inputs.values[j] 
+               numberCounter++
+               if(numberCounter % 2 === 0){
+                  i++
+               }
+               break; 
+         }
+      } 
+      console.log(conta)
+      console.log(inputs.values)
+      if (limpa === true){
+         displayNumber = conta
+         apaga = true
+         render()
+      } 
+      conta = 0 
+      
    } 
-   // if(inputs.values.length < 2){
-   //    inputs.values.push(nameIt)
-   // }
-   // switch(inputs.operations){
-   //    case '+': 
-   //       conta = inputs.values[0] + inputs.values[1] 
-   //       break; 
-   //    case '/': 
-   //       conta = inputs.values[0] / inputs.values[1] 
-   //       break; 
-   //    case '*': 
-   //       conta = inputs.values[0] * inputs.values[1] 
-   //       break; 
-   //    case '-': 
-   //       conta = inputs.values[0] - inputs.values[1] 
-   //       break; 
-   // }  
    // displayNumber = conta
    // if(inputs.values.length == 2){
    //    inputs.values[1] = conta
@@ -144,21 +207,22 @@ function limpar(zero=true) {
    conta = 0
    inputs.values = []
    inputs.operations = []
+   inputs.tamanhoValues = 0
    render()
 }
 
 function makeItZero() {
-   if(ligado){
+   if(on){
       limpar(true)
    }
 }
 
 function turnOn() {
    limpar(true)
-   ligado = true
+   on = true
 }
 
 function turnOff() {
    limpar(false)
-   ligado = false
+   on = false
 }
