@@ -77,19 +77,9 @@ function subtrair() {
       inputs.values.push(0)
       render()
    } 
-   // inputs.operations = "-"
-   // if(inputs.values.length === 2) {
-   //    inputs.values[0] = inputs.values[1]
-   //    inputs.values[1] = nameIt
-   //    calcular()
-   // } else {
-   //    inputs.values.push(nameIt)
-   //    displayNumber = ""
-   //    console.log(conta)
-   //    render()
-   // }
    
 }
+
 function multiplicar() {
    if(on){
       inputs.operations.push("*")
@@ -98,17 +88,8 @@ function multiplicar() {
       inputs.values.push(0)
       render()
    } 
-   // inputs.operations = "*"
-   // if(inputs.values.length === 2) {
-   //    inputs.values[0] = nameIt
-   //    calcular()
-   // } else {
-   //    inputs.values.push(nameIt)
-   //    displayNumber = ""
-   //    console.log(conta)
-   //    render()
-   // }
 }
+
 function dividir() {
    if(on){
       inputs.operations.push("/")
@@ -117,18 +98,6 @@ function dividir() {
       inputs.values.push(0)
       render()
    } 
-// inputs.operations = "/"
-   // if(inputs.values.length === 2) {
-   //    inputs.values[0] = inputs.values[1]
-   //    inputs.values[1] = nameIt
-   //    calcular()
-      
-   // } else {
-   //    inputs.values.push(nameIt)
-   //    displayNumber = ""
-   //    console.log(conta)
-   //    render()
-   // }
 }
 
 function calcular(limpa=false){
@@ -158,8 +127,9 @@ function calcular(limpa=false){
             case '*': 
                if(conta === 0) {
                   conta += inputs.values[j]
+               } else {
+                  conta *= inputs.values[j] 
                }
-               conta *= inputs.values[j] 
                numberCounter++
                if(numberCounter % 2 === 0){
                   i++
@@ -168,12 +138,14 @@ function calcular(limpa=false){
             case '/': 
                if(conta === 0) {
                   conta += inputs.values[j]
+               } else {
+                  conta /= inputs.values[j] 
                }
-               conta /= inputs.values[j] 
                numberCounter++
                if(numberCounter % 2 === 0){
                   i++
                }
+               console.log(i + " " + inputs.operations)
                break; 
          }
       } 
@@ -185,17 +157,8 @@ function calcular(limpa=false){
          render()
       } 
       conta = 0 
-      
+
    } 
-   // displayNumber = conta
-   // if(inputs.values.length == 2){
-   //    inputs.values[1] = conta
-   // }
-   // apaga = true
-   // if(limpa === true){
-   //    limpar(true)
-   // }
-   // render()
 }
 
 function limpar(zero=true) {
@@ -209,6 +172,7 @@ function limpar(zero=true) {
    inputs.operations = []
    inputs.tamanhoValues = 0
    render()
+   
 }
 
 function makeItZero() {
