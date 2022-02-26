@@ -37,12 +37,6 @@ function concatena(number) {
          console.log(inputs.values)
          render()
       }
-      // if(inputs.values.length > 1 && inputs.values.length < 3){
-      //    calcular()
-      //    //
-      // }else{
-      //    calcular(true)
-      //}
    }
    
    
@@ -56,18 +50,6 @@ function somar() {
       inputs.values.push(0)
       render()
    } 
-   // inputs.operations = "+"
-   // if(inputs.values.length === 2) {
-   //    inputs.values[0] = inputs.values[1]
-   //    inputs.values[1] = nameIt
-   //    calcular()
-   // } else {
-   //    inputs.values.push(nameIt)
-   //    displayNumber = ""
-   //    console.log(conta)
-
-   //    render()
-   // }  
 }
 function subtrair() {
    if(on){
@@ -109,7 +91,7 @@ function calcular(limpa=false){
             case '+': 
                conta += inputs.values[j] 
                numberCounter++
-               if(numberCounter % 2 === 0){
+               if(numberCounter > 1){
                   i++
                }
                break; 
@@ -120,7 +102,7 @@ function calcular(limpa=false){
                   conta -= inputs.values[j] 
                }
                numberCounter++
-               if(numberCounter % 2 === 0){
+               if(numberCounter > 1){
                   i++
                }
                break; 
@@ -131,7 +113,7 @@ function calcular(limpa=false){
                   conta *= inputs.values[j] 
                }
                numberCounter++
-               if(numberCounter % 2 === 0){
+               if(numberCounter > 1){
                   i++
                }
                break; 
@@ -142,7 +124,7 @@ function calcular(limpa=false){
                   conta /= inputs.values[j] 
                }
                numberCounter++
-               if(numberCounter % 2 === 0){
+               if(numberCounter > 1){
                   i++
                }
                console.log(i + " " + inputs.operations)
