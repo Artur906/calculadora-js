@@ -44,19 +44,28 @@ function concatena(number) {
 
 function somar() {
    if(on){
-      inputs.operations.push("+")
+      if(displayNumber === "-"){
+         displayNumber = "0"
+      } else {
+         inputs.operations.push("+")
       displayNumber = ""
       inputs.tamanhoValues++
       inputs.values.push(0)
+      }
+      
       render()
    } 
 }
 function subtrair() {
    if(on){
-      inputs.operations.push("-")
-      displayNumber = ""
-      inputs.tamanhoValues++
-      inputs.values.push(0)
+      if(inputs.tamanhoValues === 0){
+         displayNumber = "-"
+      } else {
+         inputs.operations.push("-")
+         displayNumber = ""
+         inputs.tamanhoValues++
+         inputs.values.push(0)
+      }
       render()
    } 
    
@@ -64,20 +73,28 @@ function subtrair() {
 
 function multiplicar() {
    if(on){
-      inputs.operations.push("*")
-      displayNumber = ""
-      inputs.tamanhoValues++
-      inputs.values.push(0)
+      if(displayNumber === "-"){
+         displayNumber = "0"
+      } else {
+         inputs.operations.push("*")
+         displayNumber = ""
+         inputs.tamanhoValues++
+         inputs.values.push(0)
+      }
       render()
    } 
 }
 
 function dividir() {
    if(on){
-      inputs.operations.push("/")
-      displayNumber = ""
-      inputs.tamanhoValues++
-      inputs.values.push(0)
+      if(displayNumber === "-"){
+         displayNumber = "0"
+      } else {
+         inputs.operations.push("/")
+         displayNumber = ""
+         inputs.tamanhoValues++
+         inputs.values.push(0)
+      }   
       render()
    } 
 }
