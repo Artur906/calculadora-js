@@ -48,9 +48,9 @@ function somar() {
          displayNumber = "0"
       } else {
          inputs.operations.push("+")
-      displayNumber = ""
-      inputs.tamanhoValues++
-      inputs.values.push(0)
+         displayNumber = ""
+         inputs.tamanhoValues++
+         inputs.values.push(0)
       }
       
       render()
