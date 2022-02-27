@@ -58,7 +58,7 @@ function somar() {
 }
 function subtrair() {
    if(on){
-      if(inputs.tamanhoValues === 0){
+      if(inputs.tamanhoValues === 0 && displayNumber === "0"){
          displayNumber = "-"
       } else {
          inputs.operations.push("-")
