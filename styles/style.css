@@ -28,10 +28,24 @@ body {
    height: 50px;
    background-color: rgba(0, 0, 0, 0.767);
    margin: auto;
-   text-align: right;
+   display: flex;
+   flex-direction: column; 
+   text-align: end;
    color: white;
-   font-size: 40px;
    font-family: Roboto mono;
+}
+
+#previous {
+   margin: 0 2px;
+   height: 14px;
+   color: rgba(255, 255, 255, 0.631);
+}
+
+#number {
+   margin: 0 2px;
+   height: 15px;
+   font-size: 30px;
+   margin-right: 2px;
 }
 
 #keys {

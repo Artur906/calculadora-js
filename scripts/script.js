@@ -1,5 +1,7 @@
-let displayEl = document.getElementById("display")
+let displayEl = document.getElementById("number")
+let previousEl = document.getElementById("previous")
 let displayNumber = ""
+let previous = ""
 let inputs = {
    tamanhoValues: 0,
    values: [0], 
@@ -11,11 +13,15 @@ let apaga = false
 
 function render() {
    displayEl.textContent = displayNumber
+   if(apaga === true){
+      previousEl.textContent = previous
+   }
 }
 
 function concatena(number) {
    
    if(on === true){
+      previous = ""
       if(displayNumber[displayNumber.length-1] === "." && number === "."){
          displayNumber = displayEl 
       }
@@ -23,14 +29,15 @@ function concatena(number) {
          apaga = true
       }
       if(displayEl === "0" || apaga === true){
+         previous = displayNumber
          displayNumber = ""
          if(apaga === true) {
             displayNumber += number
             inputs.values[inputs.tamanhoValues] = parseFloat(displayNumber)
-            apaga = false
          }
          render()
-      } else if (displayNumber.length < 7){
+         apaga = false
+      } else if (displayNumber.length < 9){
          displayNumber += number
          inputs.values[inputs.tamanhoValues] = parseFloat(displayNumber)
          console.log(inputs.tamanhoValues)
