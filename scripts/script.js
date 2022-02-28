@@ -170,6 +170,7 @@ function calcular(limpa=false){
 function limpar(zero=true) {
    if (zero === true){
       displayNumber = "0"
+      previous = ""
    } else {
       displayNumber = ""
    }
