@@ -1,4 +1,4 @@
-let displayEl = document.getElementById("number")
+const displayEl = document.getElementById("number")
 let displayNumber = ""
 let inputs = {
    tamanhoValues: 0,
@@ -56,6 +56,7 @@ function somar() {
       render()
    } 
 }
+
 function subtrair() {
    if(on){
       if(inputs.tamanhoValues === 0 && displayNumber === "0"){
