@@ -43,9 +43,10 @@ body {
 
 #number {
    margin: 0 2px;
-   height: 15px;
+   height: 100%;
    font-size: 30px;
    margin-right: 2px;
+   overflow: hidden;
 }
 
 #keys {
