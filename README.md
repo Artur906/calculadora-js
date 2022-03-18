@@ -6,7 +6,6 @@
 [Clica aqui](https://artur906.github.io/calculadora-js/) pra interagir um pouco com ela, e ver como tá bugada kkkk
 
 ## Problemas que eu já encontrei 
-* Dependendo do tamanho da conta o resultado estoura o display
 * O botão OFF é meio inútil, mas achei legal implementar, só porque fiz com uma calculadora aqui do meu lado
 * Preciso arrumar uma forma de respeitar a ordem das operações, por exemplo: 2 + 3 * 2 tem que dar 8
 * Código sujo, cheio de gambiarra :) 
